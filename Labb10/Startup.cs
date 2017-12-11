@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Labb10.Entities;
 using Microsoft.EntityFrameworkCore;
+using NLog.LayoutRenderers;
+using NLog;
 
 namespace Labb10
 {

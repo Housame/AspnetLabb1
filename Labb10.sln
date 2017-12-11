@@ -3,16 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labb10", "Labb10\Labb10.csproj", "{76703BA1-0DF4-433D-AB5B-CD9F30A74B5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Labb10", "Labb10\Labb10.csproj", "{76703BA1-0DF4-433D-AB5B-CD9F30A74B5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Labb1|Any CPU = Labb1|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{76703BA1-0DF4-433D-AB5B-CD9F30A74B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{76703BA1-0DF4-433D-AB5B-CD9F30A74B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76703BA1-0DF4-433D-AB5B-CD9F30A74B5B}.Labb1|Any CPU.ActiveCfg = Debug|Any CPU
+		{76703BA1-0DF4-433D-AB5B-CD9F30A74B5B}.Labb1|Any CPU.Build.0 = Debug|Any CPU
 		{76703BA1-0DF4-433D-AB5B-CD9F30A74B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76703BA1-0DF4-433D-AB5B-CD9F30A74B5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

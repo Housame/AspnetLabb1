@@ -7,6 +7,8 @@
     var formBtn = $("#submit-customer");
     var uploadCSV = $("#file-uploading");
     var initData = $("#init-data");
+    var logData = $("#log-data");
+    var logModal = $("#myModal");
 
     UpdateTable();
 
@@ -129,6 +131,31 @@
                 alert("fail");
             });
         }
+    });
+
+    //Output the log data
+    logData.on('click', function () {
+        console.log('Inside get log file');
+
+        $.ajax({
+            url: '/api/customer/log/',
+            type: 'GET',
+        }).done(function (result) {
+            $('.modal-body').empty();
+            $.each(result, function (index, item) {
+                if (index % 2 == 0) {
+                    $('.modal-body').append('<p style="color:darkorchid">' + item + '</p>');
+                }
+                else {
+                    $('.modal-body').append('<p style="color:darkturquoise">' + item + '</p>');
+                }
+                //$('.modal-body').append('<p>' + item + '</p>');
+            });
+        }).fail(function (xhr, status, error) {
+            $('#logfileOutput').empty().html('<p class="lead">' + xhr.responseText + '</p>');
+            console.log('fail at get log file');
+        });
+        //$(".modal-body").append('<h5>Hello World<h5>')
     });
 
     //Dynamically creating the rows on tables while filling it with data

@@ -8,6 +8,8 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using NLog;
+using NLog.Targets;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -103,6 +105,22 @@ namespace Labb10.Controllers
             }
             databaseContext.SaveChanges();
             return Ok();
+        }
+        [HttpGet]
+        [Route("log")]
+        public IActionResult GetLogFile()
+        {
+            var fileTarget = (FileTarget)LogManager.Configuration.FindTargetByName("ownFile-web");
+            var logEventInfo = new LogEventInfo { TimeStamp = DateTime.Now};
+            string fileName = fileTarget.FileName.Render(logEventInfo);
+            if (!System.IO.File.Exists(fileName))
+            {
+                throw new Exception("Log file does not exist.");
+            }
+            else
+            {
+                return Ok(System.IO.File.ReadAllLines(fileName));
+            }
         }
     }
 }
