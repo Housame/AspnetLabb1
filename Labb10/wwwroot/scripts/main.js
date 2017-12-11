@@ -13,6 +13,7 @@
 
     //-------------------------------------------------------------------------------------
 
+    //Adding customer
     $(document).on('click', '.addNew', function () {
         $.ajax({
             url: '/api/customer/',
@@ -29,6 +30,7 @@
             .done(function (result) {
 
                 console.log("Success!", result);
+                resetForm();
                 UpdateTable();
 
             })
@@ -41,6 +43,7 @@
             });
     });
 
+    //Removing a customer 
     $(document).on('click', '.remove', function () {
         var id = $(this).attr('data-removeId');
         console.log(id);
@@ -55,6 +58,8 @@
             });
     });
 
+    //Function that cast the customer(to edit) into the addingform while
+    //changing the class of button  from submit to update
     $(document).on('click', '.uppgrade', function () {
         var id = $(this).attr('data-uppgradeId');
         $.ajax({
@@ -73,6 +78,7 @@
         });
     });
 
+    //Updating the customer, ajax => controller, and resetting the adding form
     $(document).on('click', '.uppgradeDB', function () {
         var id = formBtn.data('id');
         console.log(id);
@@ -96,6 +102,7 @@
             });
     });
 
+    //Upload csv files, resetting data and upload the new data
     uploadCSV.on('click', function () {
         $.ajax({
             url: '/api/customer/csv',
@@ -109,6 +116,7 @@
 
     });
 
+    //Deleting all data from DB
     initData.on('click', function () {
         if (confirm("Are you sure? All data will be lost!") === true) {
             $.ajax({
@@ -123,6 +131,7 @@
         }
     });
 
+    //Dynamically creating the rows on tables while filling it with data
     function UpdateTable() {
         $('#customerTable').empty();
         $.ajax({
@@ -153,6 +162,7 @@
             });
     }
 
+    //Helper func to show proper format of dates on table
     function splitDateTime(date) {
 
         var year = date.substring(10, 0);
@@ -166,6 +176,7 @@
         return timeToReturn;
     }
 
+    //Helper func to switch button "submit <==> update" ....
     function switchBtnFunc(value, id) {
         if (value === 0) {
             formBtn.removeClass("btn-primary addNew");
@@ -177,12 +188,17 @@
             formBtn.removeClass("btn-success uppgradeDB");
             formBtn.addClass("btn-primary addNew");
             formBtn.text("submit");
-            firstNameInput.val("");
-            lastNameInput.val("");
-            emailInput.val("");
-            ageInput.val("");
-            genderInput.val("Man");
+            resetForm();
         }
+    }
+
+    //Helper func for resetting form
+    function resetForm() {
+        firstNameInput.val("");
+        lastNameInput.val("");
+        emailInput.val("");
+        ageInput.val("");
+        genderInput.val("Man");
     }
 });
 
