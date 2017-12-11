@@ -1,0 +1,13 @@
+C:\Users\Housam\Source\Repos\Labb10\Labb10\bin\Release\netcoreapp2.0\nlog.config
+C:\Users\Housam\Source\Repos\Labb10\Labb10\bin\Release\netcoreapp2.0\appsettings.json
+C:\Users\Housam\Source\Repos\Labb10\Labb10\bin\Release\netcoreapp2.0\Labb10.deps.json
+C:\Users\Housam\Source\Repos\Labb10\Labb10\bin\Release\netcoreapp2.0\Labb10.runtimeconfig.json
+C:\Users\Housam\Source\Repos\Labb10\Labb10\bin\Release\netcoreapp2.0\Labb10.runtimeconfig.dev.json
+C:\Users\Housam\Source\Repos\Labb10\Labb10\bin\Release\netcoreapp2.0\Labb10.dll
+C:\Users\Housam\Source\Repos\Labb10\Labb10\bin\Release\netcoreapp2.0\Labb10.pdb
+C:\Users\Housam\Source\Repos\Labb10\Labb10\obj\Release\netcoreapp2.0\Labb10.csprojResolveAssemblyReference.cache
+C:\Users\Housam\Source\Repos\Labb10\Labb10\obj\Release\netcoreapp2.0\Labb10.csproj.CoreCompileInputs.cache
+C:\Users\Housam\Source\Repos\Labb10\Labb10\obj\Release\netcoreapp2.0\Labb10.AssemblyInfoInputs.cache
+C:\Users\Housam\Source\Repos\Labb10\Labb10\obj\Release\netcoreapp2.0\Labb10.AssemblyInfo.cs
+C:\Users\Housam\Source\Repos\Labb10\Labb10\obj\Release\netcoreapp2.0\Labb10.dll
+C:\Users\Housam\Source\Repos\Labb10\Labb10\obj\Release\netcoreapp2.0\Labb10.pdb

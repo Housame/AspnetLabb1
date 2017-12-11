@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAk3SNvzSmsEOYDhL7q07HKgAAAAACAAAAAAAQZgAAAAEAACAAAADx9ThpRp3hcmvBmBgmZPwUwy2hkt7PKIbMtyOdo3hERQAAAAAOgAAAAAIAACAAAACtIbYwGGXigmAyDN4cFHxuECoECEYWSZizecU1CuG6fIAAAADv4jK5c15lFifTeZXrJkK7xKqkX0qjABbRd/bKns/hhW1+r0m/cSlvjaEPew0KCcYh+nP29QarbDrv+Z/IOQOnFanGnssZgyUqnR+TjiWbg6ovIyVtXbLCmLlqg8q2vSLR8giRB7bQyLMerz3M7UjzxN2XXMgaqshig72ukvg6bkAAAABA1iJuI6EkhkQdsEn8WQvRmozSwawcYqtXkswBJbzR0iAYfirkyG5Z01i5GTgENLk96v+YhwdBIdMlpXqJzT+N</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=aspnetlabb.database.windows.net;Initial Catalog=CustomerDb;Integrated Security=False;User ID=Housame;Password=Ou22986879;Connect Timeout=15;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

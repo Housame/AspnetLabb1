@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Kundregister med databas</title>
+    <link rel="stylesheet" href="styles/stylesheet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container container-full">
+        <div id="add-customer-div" class="row text-center">
+
+            <!--Form for adding/editing customer-->
+            <div class="col-3">
+                <div id="addForm">
+                    <label for="inputFirstName">Förnamn</label>
+                    <input name="FirstName" id="inputFirstName" class="form-control" />
+
+                    <label for="inputLastName">Efternamn</label>
+                    <input name="LastName" id="inputLastName" class="form-control" />
+
+                    <label for="inputEmail">mail-adress</label>
+                    <input name="Email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Skriv in din mailadress" />
+                    <small id="emailHelp" class="form-text text-muted">Vi delar ALDRIG din mail-adress</small>
+
+                    <label for="inputAge">Age</label>
+                    <input type="number" name="Age" id="inputAge" class="form-control" />
+
+                    <label for="inputgender">Kön</label>
+                    <select name="gender" class="form-control" id="inputgender">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select><br />
+                    <button id="submit-customer" type="submit" class="btn btn-primary addNew">Submit new customer</button>
+                </div>
+
+            </div>
+
+            <!--Table that show customer-->
+            <div class="col-9">
+                <div id="customersTable">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Created</th>
+                                <th scope="col">Edited</th>
+                                <th scope="col">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customerTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <hr />
+        <!--Row for Uploading-->
+        <div class="row text-center">
+            <h4>Upload data from *.csv file and replace data</h4>
+            <br />
+            <button id="file-uploading" class="btn btn-warning">upload</button>
+        </div>
+
+        <!--Row for resetting all data-->
+        <div class="row">
+            <h4 style="color:red"> Delete all data</h4>
+            <button id="init-data" class="btn btn-danger"> Init data</button>
+        </div>
+
+    </div>
+    <br /><br /><br /><br />
+
+    <!--Footer-->
+    <footer style="background-color:lightskyblue">
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p class="navbar-text pull-left">
+                    © 2017 - Site Built By Housame Oueslati
+                    <a href="https://www.boxcore.net" target="_blank">one of BoxCore's Co-Founders   </a>
+                </p>
+                <a href="https://www.facebook.com/BoxCoreOfficial/" class="navbar-btn btn-primary btn pull-right">
+                    <span class="glyphicon glyphicon-star"></span>  Follows us
+                </a>
+            </div>
+
+
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
