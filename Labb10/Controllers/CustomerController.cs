@@ -7,6 +7,7 @@ using Labb10.Entities;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,18 +18,21 @@ namespace Labb10.Controllers
     {
         private DatabaseContext databaseContext;
         private readonly string webRootPath;
-        IHostingEnvironment hostingEnvironment;
+        private readonly ILogger<CustomerController> _logger;
 
-        public CustomerController(DatabaseContext databaseContext, IHostingEnvironment hostingEnvironment)
+        public CustomerController(DatabaseContext databaseContext, ILogger<CustomerController> _logger, IHostingEnvironment hostingEnvironment)
         {
             webRootPath = Path.Combine(hostingEnvironment.WebRootPath, "csvFiles", "Customers.csv");
             this.databaseContext = databaseContext;
+            this._logger = _logger;
         }
         [HttpGet]
         public IActionResult GetCustomers()
         {
             var customerList = databaseContext.Customers;
+            _logger.LogInformation($"Getting all customers from database, count: {customerList.Count()}");
             return Ok(customerList);
+            
         }
         [HttpPut]
         public IActionResult GetCustomerToEdit(int id)
@@ -42,6 +46,7 @@ namespace Labb10.Controllers
             customer.DateOfCreation = DateTime.Now;
             databaseContext.Add(customer);
             databaseContext.SaveChanges();
+            _logger.LogInformation($"{customer.FirstName}has been added");
             return Ok();
         }
         [HttpDelete]
@@ -82,7 +87,6 @@ namespace Labb10.Controllers
             using (var sr = System.IO.File.OpenText(webRootPath))
             {
                 string headerLine = sr.ReadLine();
-                string someLine;
                 while (!sr.EndOfStream)
                 {
                     var line = sr.ReadLine().Trim().Split(",");

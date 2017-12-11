@@ -35,10 +35,10 @@
 
             .fail(function (xhr, status, error) {
 
-                alert(`Fail!`)
+                alert(`Fail!`);
                 console.log("Error", xhr, status, error);
 
-            })
+            });
     });
 
     $(document).on('click', '.remove', function () {
@@ -47,12 +47,12 @@
         $.ajax({
             url: "/api/customer",
             type: 'Delete',
-            data: { 'id': id },
+            data: { 'id': id }
         })
             .done(function (result) {
                 alert(id + " deleted");
                 UpdateTable();
-            })
+            });
     });
 
     $(document).on('click', '.uppgrade', function () {
@@ -86,14 +86,14 @@
                 'email': emailInput.val(),
                 'age': ageInput.val(),
                 'gender': genderInput.text().toString()
-            },
+            }
         })
             .done(function (result) {
                 $("#upgradeCustomerDiv").css('display', 'none');
                 alert(" uppgraded !");
                 UpdateTable();
                 switchBtnFunc(1);
-            })
+            });
     });
 
     uploadCSV.on('click', function () {
@@ -110,7 +110,7 @@
     });
 
     initData.on('click', function () {
-        if (confirm("Are you sure? All data will be lost!") == true) {
+        if (confirm("Are you sure? All data will be lost!") === true) {
             $.ajax({
                 url: '/api/customer/removeAll',
                 type: 'Get'
@@ -122,15 +122,16 @@
             });
         }
     });
+
     function UpdateTable() {
         $('#customerTable').empty();
         $.ajax({
             url: '/api/customer/',
-            method: 'Get',
+            method: 'Get'
 
         })
             .done(function (result) {
-                console.log("Success!", result)
+                console.log("Success!", result);
                 $.each(result, function (i, item) {
                     var $tr = $('<tr>').append(
                         $('<th scope="row">').text(i + 1),
@@ -148,11 +149,8 @@
             })
 
             .fail(function (xhr, status, error) {
-
-                alert(`Fail!`)
                 console.log("Error", xhr, status, error);
-
-            })
+            });
     }
 
     function splitDateTime(date) {
@@ -160,7 +158,7 @@
         var year = date.substring(10, 0);
         var time = date.substring(19, 11);
         var timeToReturn = "";
-        if (year == "0001-01-01") {
+        if (year === "0001-01-01") {
             timeToReturn = "Never edited";
         }
         else timeToReturn = year + " " + time;
@@ -169,18 +167,18 @@
     }
 
     function switchBtnFunc(value, id) {
-        if (value == 0) {
+        if (value === 0) {
             formBtn.removeClass("btn-primary addNew");
             formBtn.addClass("btn-success uppgradeDB");
             formBtn.text("save changes");
-            formBtn.data('id', id)
+            formBtn.data('id', id);
         }
         else {
             formBtn.removeClass("btn-success uppgradeDB");
             formBtn.addClass("btn-primary addNew");
             formBtn.text("submit");
             firstNameInput.val("");
-            lastNameInput.val("")
+            lastNameInput.val("");
             emailInput.val("");
             ageInput.val("");
             genderInput.val("Man");

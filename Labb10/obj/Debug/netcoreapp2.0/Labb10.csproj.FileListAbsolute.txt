@@ -9,3 +9,5 @@ c:\users\housam\Source\Repos\Labb10\Labb10\obj\Debug\netcoreapp2.0\Labb10.Assemb
 c:\users\housam\Source\Repos\Labb10\Labb10\obj\Debug\netcoreapp2.0\Labb10.AssemblyInfo.cs
 c:\users\housam\Source\Repos\Labb10\Labb10\obj\Debug\netcoreapp2.0\Labb10.dll
 c:\users\housam\Source\Repos\Labb10\Labb10\obj\Debug\netcoreapp2.0\Labb10.pdb
+C:\Users\Housam\Source\Repos\Labb10\Labb10\bin\Debug\netcoreapp2.0\appsettings.json
+C:\Users\Housam\Source\Repos\Labb10\Labb10\bin\Debug\netcoreapp2.0\nlog.config

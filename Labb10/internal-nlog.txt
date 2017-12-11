@@ -1,0 +1,22 @@
+2017-12-11 05:15:00.1335 Info Message Template Auto Format enabled
+2017-12-11 05:15:00.1848 Info Adding target File Target[allfile]
+2017-12-11 05:15:00.1848 Info Adding target Null Target[blackhole]
+2017-12-11 05:15:00.1848 Info Configured from an XML element in NLog.config...
+2017-12-11 05:15:00.2076 Info Found 28 configuration items
+2017-12-11 05:15:00.2169 Info Found 28 configuration items
+2017-12-11 05:15:00.4081 Info Message Template Auto Format enabled
+2017-12-11 05:15:00.4081 Info Found 28 configuration items
+2017-12-11 05:15:00.4081 Info Adding target File Target[allfile]
+2017-12-11 05:15:00.4081 Info Adding target Null Target[blackhole]
+2017-12-11 05:15:00.4081 Info Configured from an XML element in NLog.config...
+2017-12-11 05:20:28.4767 Info Message Template Auto Format enabled
+2017-12-11 05:20:28.5312 Info Adding target File Target[allfile]
+2017-12-11 05:20:28.5312 Info Adding target Null Target[blackhole]
+2017-12-11 05:20:28.5312 Info Configured from an XML element in NLog.config...
+2017-12-11 05:20:28.5555 Info Found 28 configuration items
+2017-12-11 05:20:28.5555 Info Found 28 configuration items
+2017-12-11 05:20:28.7618 Info Message Template Auto Format enabled
+2017-12-11 05:20:28.7618 Info Found 28 configuration items
+2017-12-11 05:20:28.7618 Info Adding target File Target[allfile]
+2017-12-11 05:20:28.7618 Info Adding target Null Target[blackhole]
+2017-12-11 05:20:28.7618 Info Configured from an XML element in NLog.config...
