@@ -7,6 +7,7 @@
     var genderInput = $("#inputgender option:selected");
     var formBtn = $("#submit-customer");
     var uploadCSV = $("#file-uploading");
+    var initData = $("#init-data");
 
     UpdateTable();
 
@@ -108,6 +109,19 @@
 
     });
 
+    initData.on('click', function () {
+        if (confirm("Are you sure? All data will be lost!") == true) {
+            $.ajax({
+                url: '/api/customer/removeAll',
+                type: 'Get'
+            }).done(function (result) {
+                console.log("Success");
+                UpdateTable();
+            }).fail(function (xhr, status, error) {
+                alert("fail");
+            });
+        }
+    });
     function UpdateTable() {
         $('#customerTable').empty();
         $.ajax({

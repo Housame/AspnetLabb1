@@ -16,12 +16,12 @@ namespace Labb10.Controllers
     public class CustomerController : Controller
     {
         private DatabaseContext databaseContext;
-        private readonly string pathToCsvFile;
+        private readonly string webRootPath;
         IHostingEnvironment hostingEnvironment;
 
         public CustomerController(DatabaseContext databaseContext, IHostingEnvironment hostingEnvironment)
         {
-            pathToCsvFile = Path.Combine(hostingEnvironment.WebRootPath, "csvFiles", "Customers.csv");
+            webRootPath = Path.Combine(hostingEnvironment.WebRootPath, "csvFiles", "Customers.csv");
             this.databaseContext = databaseContext;
         }
         [HttpGet]
@@ -66,82 +66,23 @@ namespace Labb10.Controllers
             return Ok();
         }
         [HttpGet]
+        [Route("removeAll")]
+        public IActionResult RemoveData()
+        {
+            databaseContext.Customers.RemoveRange(databaseContext.Customers);
+            databaseContext.SaveChanges();
+            return Ok();
+        }
+        [HttpGet]
         [Route("csv")]
-        //public async Task<IActionResult> XLSPage(IFormFile xlsFile)
-        //{
-        //    var uploadsRoot = hostingEnvironment.WebRootPath;
-        //    var filePath = Path.Combine(uploadsRoot, xlsFile.FileName).ToString();
-        //    int logCounter = 0;
-        //    if (xlsFile.ContentType.Equals("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
-        //    {
-        //        try
-        //        {
-        //            using (var fileStream = new FileStream(filePath, FileMode.Create))
-        //            {
-        //                await xlsFile.CopyToAsync(fileStream);
-        //                fileStream.Dispose();
-        //                var package = new ExcelPackage(new FileInfo(filePath));
-
-        //                ExcelWorksheet workSheet = package.Workbook.Worksheets.First();
-
-        //                //Get the values in the sheet
-        //                object[,] valueArray = workSheet.Cells.GetValue<object[,]>();
-
-        //                int maxRows = workSheet.Dimension.End.Row;
-        //                int maxColumns = workSheet.Dimension.End.Column;
-        //                List<DmgRegisterVM> claims = new List<DmgRegisterVM>();
-
-        //                for (int col = 0; col < maxColumns; col++)
-        //                {
-        //                    dictionaryColIndexs.Add(valueArray[0, col].ToString(), col);
-        //                }
-
-        //                for (int row = 1; row < maxRows; row++)
-        //                {
-        //                    var c = new DmgRegisterVM();
-        //                    c.ClientName = valueArray[row, MapCol("Client name")] != null ? (string)valueArray[row, MapCol("Client name")] : null;
-        //                    c.Uwyear = valueArray[row, MapCol("UW Year")] != null ? valueArray[row, MapCol("UW Year")].ToString() : null;
-        //                    c.AgreementNo = valueArray[row, MapCol("Agreement Number")] != null ? (string)valueArray[row, MapCol("Agreement Number")] : null;
-        //                    c.AgreementName = valueArray[row, MapCol("Agreement name")] != null ? (string)valueArray[row, MapCol("Agreement name")] : null;
-        //                    c.BusinessType = valueArray[row, MapCol("BusinessType")] != null ? (string)valueArray[row, MapCol("BusinessType")] : null;
-        //                    c.TotalPaidInsurerShare = (valueArray[row, MapCol("TotalPaidInsurerShare")] != null) ? Decimal.Parse(valueArray[row, MapCol("TotalPaidInsurerShare")].ToString()) : (decimal?)null;
-        //                    claims.Add(c);
-        //                    logCounter++;
-        //                }
-        //                context.SaveRegToDb(claims);
-        //                //If it's suppose to delete the excel file after importing the data from it
-        //                FileInfo file = new FileInfo(Path.Combine(uploadsRoot, xlsFile.FileName));
-        //                file.Delete();
-        //                #endregion
-
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            String innerMessage = (ex.InnerException != null)
-        //              ? ex.InnerException.Message
-        //              : "";
-        //            //var str = e.Message;
-        //            TempData["XlsConvertErrorMsg"] = "Converting fail, check if your data is correct";
-        //            return View();
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        TempData["XlsUploadErrorMsg"] = "Uploadin fail, check if your file is xls";
-        //        return View();
-        //    }
-        //    TempData["XlsUploadConvertSuccesMsg"] = "Uploading, converting of Excel succeeded!";
-        //    TempData["LogMsg"] = logCounter;
-        //    return PartialView(nameof(ImportExportXlsController.Index)); ;
-        //}
         public IActionResult UploadCSV()
         {
             databaseContext.Customers.RemoveRange(databaseContext.Customers);
 
-            using (var sr = System.IO.File.OpenText(pathToCsvFile))
+            using (var sr = System.IO.File.OpenText(webRootPath))
             {
+                string headerLine = sr.ReadLine();
+                string someLine;
                 while (!sr.EndOfStream)
                 {
                     var line = sr.ReadLine().Trim().Split(",");
